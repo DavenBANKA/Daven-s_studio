@@ -20,14 +20,11 @@ import eyeCircuitImg from "../images/vecteezy_eye-cyber-circuit-future-technolog
 
 type Language = "fr" | "en" | "de" | "zh" | "it" | "es";
 
-// Background videos array for rotation
+// Background videos array for rotation - Using only smaller videos for Vercel
 const backgroundVideos = [
-  heroBackgroundVideo,
-  heroBackgroundVideoAlt1,
-  heroBackgroundVideoAlt2,
-  heroBackgroundVideoAlt3,
-  homeMainVideo,
-  workProcessVideo,
+  heroBackgroundVideoAlt3, // 22 MB - 1080p
+  homeMainVideo,           // 9.8 MB - 1080p
+  workProcessVideo,        // 5.7 MB - 1080p
 ];
 
 const HomePage: React.FC = () => {
