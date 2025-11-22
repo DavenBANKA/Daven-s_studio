@@ -1,10 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { NavLink, Routes, Route, useLocation } from "react-router-dom";
-import heroBackgroundVideo from "../videos/3163534-uhd_3840_2160_30fps.mp4";
-import heroBackgroundVideoAlt1 from "../videos/3129671-uhd_3840_2160_30fps.mp4";
-import heroBackgroundVideoAlt2 from "../videos/1509518-uhd_3840_2160_30fps.mp4";
-import heroBackgroundVideoAlt3 from "../videos/14727989_1920_1080_30fps.mp4";
+
+// Import images and videos - Vite will optimize them
 import homeMainVideo from "../videos/854182-hd_1920_1080_25fps.mp4";
 import workProcessVideo from "../videos/12992536_1920_1080_24fps.mp4";
 import aiRobotImg from "../images/vecteezy_ai-artificial-intelligence-robotics-head-and-face-with_6710557.jpg";
@@ -17,15 +15,6 @@ import cloudDataImg from "../images/vecteezy_cloud-computing-technology-data-inf
 import eyeCircuitImg from "../images/vecteezy_eye-cyber-circuit-future-technology-concept-background_7883011.jpg";
 
 type Language = "fr" | "en" | "de" | "zh" | "it" | "es";
-
-const backgroundVideos = [
-  heroBackgroundVideo,
-  heroBackgroundVideoAlt1,
-  heroBackgroundVideoAlt2,
-  heroBackgroundVideoAlt3,
-  homeMainVideo,
-  workProcessVideo,
-];
 
 const HomePage: React.FC = () => {
   const { t } = useTranslation();
@@ -99,13 +88,13 @@ const HomePage: React.FC = () => {
               <img
                 src={eyeInterfaceImg}
                 alt="Interface de projet technologique"
-              />
+               loading="lazy" decoding="async" />
             </div>
             <div className="hero-media__item">
               <img
                 src={aiRobotImg}
                 alt="Illustration d’intelligence artificielle et robotique"
-              />
+               loading="lazy" decoding="async" />
             </div>
           </div>
         </div>
@@ -175,7 +164,7 @@ const HomePage: React.FC = () => {
                 <img
                   src={businessCloudImg}
                   alt="Main interagissant avec une interface cloud"
-                />
+                 loading="lazy" decoding="async" />
                 <div className="case-card__tag">{t("home.case2Tag")}</div>
               </div>
               <div className="case-card__meta">
@@ -189,7 +178,7 @@ const HomePage: React.FC = () => {
                 <img
                   src={cloudDataImg}
                   alt="Données projetées dans un environnement cloud"
-                />
+                 loading="lazy" decoding="async" />
                 <div className="case-card__tag">{t("home.case3Tag")}</div>
               </div>
               <div className="case-card__meta">
@@ -203,7 +192,7 @@ const HomePage: React.FC = () => {
                 <img
                   src={binaryBackgroundImg}
                   alt="Arrière-plan binaire et code numérique"
-                />
+                 loading="lazy" decoding="async" />
                 <div className="case-card__tag">{t("home.case4Tag")}</div>
               </div>
               <div className="case-card__meta">
@@ -373,7 +362,7 @@ const WorkPage: React.FC = () => {
                 <img
                   src={aiRobotImg}
                   alt="Identité visuelle pour une marque technologique"
-                />
+                 loading="lazy" decoding="async" />
                 <div className="case-card__tag">{t('work.projects.auralink.tag')}</div>
               </div>
               <div className="case-card__meta">
@@ -394,7 +383,7 @@ const WorkPage: React.FC = () => {
                 <img
                   src={eyeCircuitImg}
                   alt="Détail d'interface mobile futuriste"
-                />
+                 loading="lazy" decoding="async" />
                 <div className="case-card__tag">{t('work.projects.pulseone.tag')}</div>
               </div>
               <div className="case-card__meta">
@@ -413,7 +402,7 @@ const WorkPage: React.FC = () => {
                 <img
                   src={binaryBackgroundImg}
                   alt="Dashboard analytique"
-                />
+                 loading="lazy" decoding="async" />
                 <div className="case-card__tag">{t('work.projects.dataflow.tag')}</div>
               </div>
               <div className="case-card__meta">
@@ -432,7 +421,7 @@ const WorkPage: React.FC = () => {
                 <img
                   src={aiRobotImg}
                   alt="Site e-commerce premium"
-                />
+                 loading="lazy" decoding="async" />
                 <div className="case-card__tag">{t('work.projects.fintech.tag')}</div>
               </div>
               <div className="case-card__meta">
@@ -451,7 +440,7 @@ const WorkPage: React.FC = () => {
                 <img
                   src={eyeCircuitImg}
                   alt="Application financière"
-                />
+                 loading="lazy" decoding="async" />
                 <div className="case-card__tag">{t('work.projects.healthtech.tag')}</div>
               </div>
               <div className="case-card__meta">
@@ -570,7 +559,7 @@ const WorkPage: React.FC = () => {
               <img
                 src={binaryBackgroundImg}
                 alt="Tableau de projets et données en arrière-plan"
-              />
+               loading="lazy" decoding="async" />
             </div>
             <div className="hero-media__item">
               <video
@@ -898,13 +887,13 @@ const StudioPage: React.FC = () => {
               <img
                 src={cloudTechImg}
                 alt="Vue abstraite d’infrastructure cloud"
-              />
+               loading="lazy" decoding="async" />
             </div>
             <div className="hero-media__item">
               <img
                 src={robotHandImg}
                 alt="Main robotique connectée à un réseau industriel"
-              />
+               loading="lazy" decoding="async" />
             </div>
           </div>
         </div>
@@ -1045,7 +1034,6 @@ const ContactPage: React.FC = () => {
 
 const App: React.FC = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
-  const [bgVideoIndex, setBgVideoIndex] = useState(0);
   const { t, i18n } = useTranslation();
   const [isLangOpen, setIsLangOpen] = useState(false);
   const langSwitcherRef = useRef<HTMLDivElement | null>(null);
@@ -1160,27 +1148,10 @@ const App: React.FC = () => {
   const navLinkClass = ({ isActive }: { isActive: boolean }) =>
     `nav__link${isActive ? " nav__link--active" : ""}`;
 
-  useEffect(() => {
-    if (backgroundVideos.length <= 1) return;
-    const intervalId = window.setInterval(() => {
-      setBgVideoIndex((prev) => (prev + 1) % backgroundVideos.length);
-    }, 10000);
 
-    return () => {
-      window.clearInterval(intervalId);
-    };
-  }, []);
 
   return (
     <>
-      <video
-        className="background-video"
-        src={backgroundVideos[bgVideoIndex]}
-        autoPlay
-        muted
-        loop
-        playsInline
-      />
       <div className="background-layer background-layer--gradient" />
       <div className="background-layer background-layer--glow" />
       <div className="cursor-orb" />
@@ -1766,3 +1737,4 @@ const CookiesPage: React.FC = () => (
 );
 
 export default App;
+
