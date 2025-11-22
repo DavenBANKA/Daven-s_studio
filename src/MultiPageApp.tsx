@@ -1806,6 +1806,7 @@ const CookiesPage: React.FC = () => (
   </section>
 );
 
+export { App };
 export default App;
 
 
