@@ -12,19 +12,9 @@ export default defineConfig({
     chunkSizeWarningLimit: 1000,
     rollupOptions: {
       output: {
-        manualChunks: (id) => {
-          if (id.includes("node_modules")) {
-            if (id.includes("react") || id.includes("react-dom")) {
-              return "react-vendor";
-            }
-            if (id.includes("react-router")) {
-              return "router";
-            }
-            if (id.includes("i18next") || id.includes("react-i18next")) {
-              return "i18n";
-            }
-            return "vendor";
-          }
+        manualChunks: {
+          vendor: ["react", "react-dom", "react-router-dom"],
+          i18n: ["i18next", "react-i18next"],
         },
         assetFileNames: (assetInfo) => {
           const info = assetInfo.name.split(".");
