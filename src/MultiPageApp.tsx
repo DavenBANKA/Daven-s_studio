@@ -3,9 +3,6 @@ import { useTranslation } from "react-i18next";
 import { NavLink, Routes, Route, useLocation } from "react-router-dom";
 
 // Import images and videos - Vite will optimize them
-import heroBackgroundVideo from "../videos/3163534-uhd_3840_2160_30fps.mp4";
-import heroBackgroundVideoAlt1 from "../videos/3129671-uhd_3840_2160_30fps.mp4";
-import heroBackgroundVideoAlt2 from "../videos/1509518-uhd_3840_2160_30fps.mp4";
 import heroBackgroundVideoAlt3 from "../videos/14727989_1920_1080_30fps.mp4";
 import homeMainVideo from "../videos/854182-hd_1920_1080_25fps.mp4";
 import workProcessVideo from "../videos/12992536_1920_1080_24fps.mp4";
@@ -1222,7 +1219,7 @@ const App: React.FC = () => {
         muted
         loop
         playsInline
-        preload="metadata"
+        preload="auto"
         key={bgVideoIndex}
       />
       <div className="background-layer background-layer--gradient" />
